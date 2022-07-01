@@ -1,6 +1,8 @@
 import {useState} from 'react'
 import GoogleMapReact from 'google-map-react'
 import LocationMarker from './LocationMarker'
+import LocationMarker1 from './LocationMarker1'
+import LocationMarker2 from './LocationMarker2'
 import LocationInfoBox from './LocationInfoBox'
 
 const Map = ({eventData, center, zoom}) => {
@@ -11,6 +13,25 @@ const Map = ({eventData, center, zoom}) => {
       return <LocationMarker lat={ev.geometry[0].coordinates[1]} 
       lng={ev.geometry[0].coordinates[0]} onClick={() => setLocationInfo({id: ev.id, title: ev.title})}/>
     }
+
+    return null
+  })
+
+  const markers1 = eventData.map(ev => {
+    if (ev.categories[0].id === "seaLakeIce") {
+      return <LocationMarker1 lat={ev.geometry[0].coordinates[1]}
+      lng={ev.geometry[0].coordinates[0]} onClick={() => setLocationInfo({id: ev.id, title: ev.title})}/>
+    }
+
+    return null
+  })
+
+  const markers2 = eventData.map(ev => {
+    if (ev.categories[0].id === "volcanoes") {
+      return <LocationMarker2 lat={ev.geometry[0].coordinates[1]}
+      lng={ev.geometry[0].coordinates[0]} onClick={() => setLocationInfo({id: ev.id, title: ev.title})}/>
+    }
+
     return null
   })
 
@@ -23,6 +44,8 @@ const Map = ({eventData, center, zoom}) => {
             defaultZoom={zoom}
         >
           {markers}
+          {markers1}
+          {markers2}
         </GoogleMapReact>
         {locationInfo && <LocationInfoBox info={locationInfo}/>}
     </div>
@@ -38,34 +61,3 @@ Map.defaultProps = {
 }
 
 export default Map
-
-/*import GoogleMapReact from "google-map-react";
-
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
-
-export default function SimpleMap(){
-  const defaultProps = {
-    center: {
-      lat: 10.99835602,
-      lng: 77.01502627
-    },
-    zoom: 11
-  };
-
-  return (
-    // Important! Always set the container height explicitly
-    <div style={{ height: '100vh', width: '100%' }}>
-      <GoogleMapReact
-        bootstrapURLKeys={{ key: "AIzaSyCgbobtATkP1KYhKWgmsqdsglxYPa829xQ" }}
-        defaultCenter={defaultProps.center}
-        defaultZoom={defaultProps.zoom}
-      >
-        <AnyReactComponent
-          lat={59.955413}
-          lng={30.337844}
-          text="My Marker"
-        />
-      </GoogleMapReact>
-    </div>
-  );
-}*/

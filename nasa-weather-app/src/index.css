@@ -24,6 +24,16 @@ body {
   text-align: center;
 }
 
+.checkbox {
+  margin-top: 85px;
+  margin-left: 50px;
+  z-index: 1000;
+}
+
+.checkbox::before {
+  content: "Fire";
+}
+
 .map {
   width: 100vw;
   height: 100vh;
@@ -33,6 +43,16 @@ body {
 .location-icon {
   font-size: 2rem;
   color: red;
+}
+
+.location-icon1 {
+  font-size: 2rem;
+  color: blue;
+}
+
+.location-icon2 {
+  font-size: 2rem;
+  color: black;
 }
 
 .loader {
