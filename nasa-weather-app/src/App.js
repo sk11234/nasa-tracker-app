@@ -2,7 +2,6 @@ import {useState, useEffect} from "react";
 import Map from "./components/Map";
 import Loader from "./components/Loader";
 import Header from "./components/Header";
-import Checkbox from "./components/Checkbox";
 
 function App() {
   const [eventData, setEventData] = useState([])
@@ -22,7 +21,6 @@ function App() {
 
   return (
     <div>
-      <Checkbox/>
       <Header/>
       {!loading ? <Map eventData={eventData}/> : <Loader/>}
     </div>

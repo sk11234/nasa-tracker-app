@@ -8,7 +8,7 @@ body {
 
 .header {
   padding: 10px;
-  background-color: firebrick;
+  background-color: green;
   color: white;
   position: fixed;
   top: 0;
@@ -18,20 +18,27 @@ body {
 }
 
 .header h1 {
-  font-size: 25px;
+  font-size: 30px;
   padding: 0;
   margin: 0;
   text-align: center;
 }
 
-.checkbox {
-  margin-top: 85px;
-  margin-left: 50px;
-  z-index: 1000;
+.checkboxTitle {
+  text-align: center;
 }
 
-.checkbox::before {
-  content: "Fire";
+.checkbox {
+  font-size: 18px;
+  border-radius: 10px;
+  background-color: rgba(0,0,0,0.75);
+  color: white;
+  position: absolute;
+  padding: 10px;
+  width: 140px;
+  margin-top: 550px;
+  margin-left: 50px;
+  z-index: 1000;
 }
 
 .map {
@@ -53,6 +60,11 @@ body {
 .location-icon2 {
   font-size: 2rem;
   color: black;
+}
+
+.location-icon3 {
+  font-size: 2rem;
+  color: orange;
 }
 
 .loader {

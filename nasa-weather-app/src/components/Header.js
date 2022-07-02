@@ -1,10 +1,7 @@
-import {Icon} from '@iconify/react'
-import locationIcon from '@iconify/icons-mdi/fire-alert'
-
 function Header() {
   return (
     <header className='header'>
-        <h1><Icon icon={locationIcon}/> Wildfire Tracker (Powered by NASA)</h1>
+        <h1>Natural Event Tracker (Powered by NASA)</h1>
     </header>
   )
 }
