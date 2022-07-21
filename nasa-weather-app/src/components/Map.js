@@ -29,36 +29,36 @@ const Map = ({eventData, center, zoom}) => {
     setIsChecked3(!isChecked3)
   }
 
-  const markers = eventData.map(ev => {
+  const markers = eventData.map((ev, index) => {
     if (ev.categories[0].id === "wildfires" && isChecked) {
-      return <LocationMarker lat={ev.geometry[0].coordinates[1]} 
+      return <LocationMarker key={index} lat={ev.geometry[0].coordinates[1]} 
       lng={ev.geometry[0].coordinates[0]} onClick={() => setLocationInfo({id: ev.id, title: ev.title})}/>
     }
 
     return null
   })
 
-  const markers1 = eventData.map(ev => {
+  const markers1 = eventData.map((ev, index) => {
     if (ev.categories[0].id === "seaLakeIce" && isChecked1) {
-      return <LocationMarker1 lat={ev.geometry[0].coordinates[1]}
+      return <LocationMarker1 key={index} lat={ev.geometry[0].coordinates[1]}
       lng={ev.geometry[0].coordinates[0]} onClick={() => setLocationInfo({id: ev.id, title: ev.title})}/>
     }
 
     return null
   })
 
-  const markers2 = eventData.map(ev => {
+  const markers2 = eventData.map((ev, index) => {
     if (ev.categories[0].id === "volcanoes" && isChecked2) {
-      return <LocationMarker2 lat={ev.geometry[0].coordinates[1]}
+      return <LocationMarker2 key={index} lat={ev.geometry[0].coordinates[1]}
       lng={ev.geometry[0].coordinates[0]} onClick={() => setLocationInfo({id: ev.id, title: ev.title})}/>
     }
 
     return null
   })
 
-  const markers3 = eventData.map(ev => {
+  const markers3 = eventData.map((ev, index) => {
     if (ev.categories[0].id === "severeStorms" && isChecked3) {
-      return <LocationMarker3 lat={ev.geometry[0].coordinates[1]}
+      return <LocationMarker3 key={index} lat={ev.geometry[0].coordinates[1]}
       lng={ev.geometry[0].coordinates[0]} onClick={() => setLocationInfo({id: ev.id, title: ev.title})}/>
     }
 
@@ -88,7 +88,7 @@ const Map = ({eventData, center, zoom}) => {
         </div>
         <GoogleMapReact
             bootstrapURLKeys={{key: 
-            'AIzaSyCgbobtATkP1KYhKWgmsqdsglxYPa829xQ'}}
+            process.env.REACT_APP_API_KEY_VALUE}}
             defaultCenter={center}
             defaultZoom={zoom}
         >
